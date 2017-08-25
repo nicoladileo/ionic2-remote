@@ -1,0 +1,25 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      Ionic Blank
+    </ion-title>
+    <ion-buttons end>
+      <button icon-only ion-button (click)="doRefresh()"><ion-icon name="refresh"></ion-icon></button>
+      <button icon-only ion-button (click)="openSettings()"><ion-icon name="settings"></ion-icon></button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-searchbar [(ngModel)]="searchTerm" (ionInput)="doFilter()"></ion-searchbar>
+  <ion-list no-lines>
+    <ion-item *ngFor="let d of modifiedDatalist">
+      <ion-avatar item-left >
+        <img [src]="d.data.thumbnail"/>
+      </ion-avatar>
+      <h2>{{d.data.title}}</h2>
+      <p>{{d.data.author}}</p>
+      <p>{{d.data.domain}}</p>
+    </ion-item>
+  </ion-list>
+</ion-content>
